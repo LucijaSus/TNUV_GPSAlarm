@@ -7,5 +7,9 @@
     <string name="plus">+</string>
     <string name="shrani">shrani</string>
     <string name="nazaj"><![CDATA[<-]]></string>
+    <string name="dialog_text">Ali res želite izbrisati alaram?</string>
+    <string name="yes">DA</string>
+    <string name="no">NE</string>
+    <string name="izbris">Ali res želite izbrisati alarm?</string>
     />
 </resources>

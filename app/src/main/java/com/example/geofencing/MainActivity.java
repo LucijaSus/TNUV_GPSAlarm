@@ -9,8 +9,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -30,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     String radij;
     int s;
 
+    @SuppressLint("ClickableViewAccessibility")
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,13 +54,29 @@ public class MainActivity extends AppCompatActivity {
             textView.setText("    " + naslov + "\n" + "    " + radij + "m");
             ll.addView(textView);
 
+
             final LinearLayout.LayoutParams lparams1 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT);
-            lparams1.setMargins(-150,22,0,0);
+            lparams1.setMargins(-150,5,0,0);
             final Switch stikalo = new Switch(this);
             stikalo.setLayoutParams(lparams1);
             stikalo.setChecked(true);
             ll.addView(stikalo);
+
+            final LinearLayout.LayoutParams lparams2 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT);
+            lparams1.setMargins(-300,40,0,0);
+            final Button gumb = new Button(this);
+            gumb.setLayoutParams(lparams2);
+            ll.addView(gumb);
+
+            gumb.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(MainActivity.this, Delete.class);
+                    startActivity(intent);
+                }
+            });
         }
+
     }
 
 
